@@ -128,3 +128,31 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+
+# Generated files
+package/generated*
+
+# Ignore installed npm modules
+node_modules/
+
+# Ignore build tool output, e.g. code coverage
+.nyc_output/
+coverage/
+docs/_data/coverage.json
+jsdoc/
+
+# Ignore API documentation
+api-docs/
+
+# Ignore folders from source code editors
+.vscode
+.idea
+
+# Ignore eleventy output when doing manual tests
+_site/
+public
+
+# Ignore test files
+.cache
+test/stubs-layout-cache/_includes/*.js
