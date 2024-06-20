@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="alternate" hreflang="sv" href="https://hagadalensvandrarhem.se">
-    <link rel="alternate" hreflang="en" href="https://hagadalensvandrarhem.se/en/index.html">
+    <link rel="alternate" hreflang="{{page.lang}}" href="https://hagadalensvandrarhem.se{{page.url}}">
+    {% for link in page.url | locale_links %}
+        <link rel="alternate" hreflang="{{link.lang}}" href="https://hagadalensvandrarhem.se{{link.url}}">
+    {% endfor %}
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <script type="text/javascript">
         window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/", "svgExt": ".svg", "source": { "concatemoji": ".\/js\/wp-emoji-release.min.js?ver=5.4.15" } };
