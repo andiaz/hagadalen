@@ -22,15 +22,15 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy(IMG_SRC_DIR);
 
     // Shortcode to process images
-    eleventyConfig.addNunjucksAsyncShortcode("image", async (src, alt, outputFormat = "jpeg", className = "") => {
+    eleventyConfig.addNunjucksAsyncShortcode("image", async (src, alt, className = "", outputFormat = "jpeg")  => { 
         if (alt === undefined) {
             throw new Error(`Missing \`alt\` on myImage from: ${src}`);
         }
 
         let inputPath = path.join(SRC_DIR, src);
         let metadata = await Image(inputPath, {
-            widths: [null], // keep the original width
-            formats: [outputFormat],
+            widths: [400, 800, 1280], // add "auto" to the list to keep the original width
+            formats: ["webp", "jpeg"],
             urlPath: "/img/", // this is the path Eleventy will use in the output HTML
             outputDir: IMG_OUTPUT_DIR, // this is the output directory
             sharpOptions: {

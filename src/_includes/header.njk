@@ -37,7 +37,7 @@
             </nav>
 
             <nav id="siteNav" style="top: 70">
-                <a href="{{ "/index/" | locale_url }}"><img src="/img/Hagadalen_logo.png"></a>
+                <a href="{{ "/index/" | locale_url }}">{% image "img/Hagadalen_logo.png", "Hågadalens vandrarhem logotyp." %}</a>
                 <div class="menu-meny-1-container">
                     <ul id="menu-meny-2" class="menu">
                         <li
@@ -58,7 +58,7 @@
                 </div>
             </nav>
             <div class="slideshow-wrapper">
-                <img data-src="/img/host_vandrarhemmet.jpg?width=150&amp;slimmage=true" data-slimmage="true" src="/img/host_vandrarhemmet.jpg?width=2080&amp;slimmage=true" data-pixel-width="2080">
+                {% image "img/host_vandrarhemmet.jpg", "Hågadalens vandrarhem" %}
             </div>
             <div class="row">
                 <div class="large-12 large-centered-columns">

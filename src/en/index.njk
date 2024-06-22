@@ -3,43 +3,38 @@ title: Hågadalens Vandrarhem
 layout: base.njk
 permalink: "/{{ locale }}/"
 ---
-            <div class="row startPageBoxes coloredBoxes">
-                <div class="large-3 columns">
-                    <h3 class="text-center">Book a room</h3>
-                    <a target="_blank" href="https://5c65bf165a023.sirvoy.me/">
-                        <div class="imageWrapper">
-                            <img data-src="/img/rumopriser1.jpg?width=150&amp;slimmage=true" data-slimmage="true"
-                                src="/img/rumopriser1.jpg?width=480&amp;slimmage=true" data-pixel-width="480">
-                        </div>
-                    </a>
-                    <p>Book directly on our website. Enter your dates for your stay in our booking calendar to see which rooms are available. Book and pay via Payson (secure payment).<br>
-                        Call us +46 70 646 21 20 if you have questions.</p>
-
-                    <a href="https://5c65bf165a023.sirvoy.me/" target="_blank" class="button round expand">Boka rum</a>
-                </div>
-                <div class="large-4 large-offset-1 columns">
-                    <h3 class="text-center">Our rooms</h3>
-                    <a href="{{ "/rum-priser/" | locale_url }}">
-                        <div class="imageWrapper">
-                            <img data-src="/img/Kenneths-rum-4.jpg?width=150&amp;slimmage=true" data-slimmage="true"
-                                src="/img/Kenneths-rum-4.jpg?width=640&amp;slimmage=true"data-pixel-width="640">
-                        </div>
-                    </a>
-                    <p><br />
-                        Our 4 rooms have generous space and are personally designed, have different sizes and appearances. The beds are made, so bed linen and towels are included.</p>
-                    <a href="{{ "/rum-priser/" | locale_url }}" class="button round expand">Our rooms</a>
-                </div>
-                <div class="large-3 large-offset-1 columns">
-                    <h3 class="text-center">About us</h3>
-                    <a href="{{ "/om-oss/" | locale_url }}">
-                        <div class="imageWrapper">
-                            <img data-src="/img/Ingers-rum-8.jpg?width=150&amp;slimmage=true"
-                                data-slimmage="true"
-                                src="/img/Ingers-rum-8.jpg?width=480&amp;slimmage=true"
-                                data-pixel-width="480">
-                        </div>
-                    </a>
-                    <p><strong>In the middle of nature – close to town.</strong>Hagadalens Hostel &amp; Hostel is a great option for you who is looking for a homely and comfortable accommodation close to both the nature and centre of Uppsala. Bus 11 takes you easily to the city (towards Fyrislund) from the nearby stop Lurbo Bro.</p>
-                    <a href="{{ "/om-oss/" | locale_url }}" class="button round expand">About us</a>
-                </div>
+<div class="row startPageBoxes coloredBoxes">
+    <div class="large-3 columns">
+        <h3 class="text-center">Book a room</h3>
+        <a target="_blank" href="https://5c65bf165a023.sirvoy.me/">
+            <div class="imageWrapper">
+                {% image "img/rumopriser1.jpg", "Calendar for booking a room." %}
             </div>
+        </a>
+        <p>Book directly on our website. Enter your dates for your stay in our booking calendar to see which rooms are available. Book and pay via Payson (secure payment).<br>
+            Call us +46 70 646 21 20 if you have questions.</p>
+
+        <a href="https://5c65bf165a023.sirvoy.me/" target="_blank" class="button round expand">Boka rum</a>
+    </div>
+    <div class="large-4 large-offset-1 columns">
+        <h3 class="text-center">Our rooms</h3>
+        <a href="{{ "/rum-priser/" | locale_url }}">
+            <div class="imageWrapper">
+                {% image "img/Kenneths-rum-4.jpg", "Kenneth's room." %}
+            </div>
+        </a>
+        <p><br />
+            Our 4 rooms have generous space and are personally designed, have different sizes and appearances. The beds are made, so bed linen and towels are included.</p>
+        <a href="{{ "/rum-priser/" | locale_url }}" class="button round expand">Our rooms</a>
+    </div>
+    <div class="large-3 large-offset-1 columns">
+        <h3 class="text-center">About us</h3>
+        <a href="{{ "/om-oss/" | locale_url }}">
+            <div class="imageWrapper">
+                {% image "img/Ingers-rum-8.jpg", "Flowers in Inger's room." %}
+            </div>
+        </a>
+        <p><strong>In the middle of nature – close to town.</strong>Hagadalens Hostel &amp; Hostel is a great option for you who is looking for a homely and comfortable accommodation close to both the nature and centre of Uppsala. Bus 11 takes you easily to the city (towards Fyrislund) from the nearby stop Lurbo Bro.</p>
+        <a href="{{ "/om-oss/" | locale_url }}" class="button round expand">About us</a>
+    </div>
+</div>
