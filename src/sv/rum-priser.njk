@@ -6,7 +6,7 @@ layout: base.njk
                 <div class="row coloredBoxes">
                     <div class="large-6 columns">
                         <div class="row">
-                            <div class="large-12 columns">
+                            <!-- <div class="large-12 columns">
                                 <h4>Tvåbäddsrum - Välj "Till bokning" nedan för att se aktuella priser</h4>
                                 <img src="/img/Johans-rum-1_compressed-1-1.jpg"
                                     alt="">
@@ -15,6 +15,18 @@ layout: base.njk
                                 <p></p>
             
                                 <a href="https://5c65bf165a023.sirvoy.me/" target="_blank" class="button round">Till bokning</a>
+                            </div> -->
+                            <div class="large-12 columns">
+                                {%- for room in collections.room -%}
+                                    {%- if room.data.tags == "room" and room.data.language == "sv" -%}
+                                        <h4>{{ room.data.title }} - Välj "Till bokning" nedan för att se aktuella priser</h4>
+                                        <img src="{{ room.data.image }}" alt="">
+                                        <p></p>
+                                        <p>{{ room.data.description }}</p>
+                                        <p></p>
+                                        <a href="https://5c65bf165a023.sirvoy.me/" target="_blank" class="button round">Till bokning</a>
+                                    {%- endif -%}
+                                {%- endfor -%}
                             </div>
                         </div>
                     </div>

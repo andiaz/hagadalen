@@ -8,11 +8,11 @@ module.exports = function (eleventyConfig) {
 		defaultLanguage: "sv",
 	});
 
+    eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
+
     eleventyConfig.addPassthroughCopy("./src/css");
     eleventyConfig.addPassthroughCopy("./src/img");
     eleventyConfig.addPassthroughCopy("./src/js");
-
-    eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
     
     return {
         dir: {
