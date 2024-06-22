@@ -1,4 +1,5 @@
 const { EleventyI18nPlugin } = require("@11ty/eleventy");
+const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 
 module.exports = function (eleventyConfig) {
     
@@ -10,6 +11,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/css");
     eleventyConfig.addPassthroughCopy("./src/img");
     eleventyConfig.addPassthroughCopy("./src/js");
+
+    eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
     
     return {
         dir: {
