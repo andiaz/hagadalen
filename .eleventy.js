@@ -2,32 +2,37 @@ const { EleventyI18nPlugin } = require("@11ty/eleventy");
 const eleventyPluginFilesMinifier = require("@sherby/eleventy-plugin-files-minifier");
 const { DateTime } = require("luxon");
 const Image = require("@11ty/eleventy-img");
+const path = require("path");
+
+// Define base directories
+const SRC_DIR = "./src";
+const OUTPUT_DIR = "./public";
+const IMG_SRC_DIR = path.join(SRC_DIR, "img");
+const IMG_OUTPUT_DIR = path.join(OUTPUT_DIR, "img");
 
 module.exports = function (eleventyConfig) {
-    
     eleventyConfig.addPlugin(EleventyI18nPlugin, {
-		// any valid BCP 47-compatible language tag is supported
-		defaultLanguage: "sv",
-	});
+        defaultLanguage: "sv",
+    });
 
     eleventyConfig.addPlugin(eleventyPluginFilesMinifier);
 
-    eleventyConfig.addPassthroughCopy("./src/css");
-    eleventyConfig.addPassthroughCopy("./src/img");
-    eleventyConfig.addPassthroughCopy("./src/js");
+    eleventyConfig.addPassthroughCopy(path.join(SRC_DIR, "css"));
+    eleventyConfig.addPassthroughCopy(path.join(SRC_DIR, "js"));
+    eleventyConfig.addPassthroughCopy(IMG_SRC_DIR);
 
     // Shortcode to process images
-    eleventyConfig.addNunjucksAsyncShortcode("image", async (src, alt, outputFormat = "jpeg") => {
+    eleventyConfig.addNunjucksAsyncShortcode("image", async (src, alt, outputFormat = "jpeg", className = "") => {
         if (alt === undefined) {
-            // You bet we throw an error on missing alt (alt="" works okay)
             throw new Error(`Missing \`alt\` on myImage from: ${src}`);
         }
 
-        let metadata = await Image(src, {
+        let inputPath = path.join(SRC_DIR, src);
+        let metadata = await Image(inputPath, {
             widths: [null], // keep the original width
             formats: [outputFormat],
             urlPath: "/img/", // this is the path Eleventy will use in the output HTML
-            outputDir: "./public/img/", // this is the output directory
+            outputDir: IMG_OUTPUT_DIR, // this is the output directory
             sharpOptions: {
                 // any additional sharp options
             }
@@ -38,11 +43,11 @@ module.exports = function (eleventyConfig) {
             sizes: "100vw",
             loading: "lazy",
             decoding: "async",
+            class: className,
         };
 
-        // You bet we throw an error on missing images
         if (!metadata[outputFormat] || !metadata[outputFormat].length) {
-            throw new Error(`No output images for myImage from: ${src}`);
+            throw new Error(`No output images for myImage from: ${inputPath}`);
         }
 
         return Image.generateHTML(metadata, imageAttributes);
@@ -51,11 +56,11 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter("postDate", (dateObj) => {
         return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
     });
-    
+
     return {
         dir: {
-            input: "src",
-            output: "public"
+            input: SRC_DIR,
+            output: OUTPUT_DIR
         }
     };
-}
+};
