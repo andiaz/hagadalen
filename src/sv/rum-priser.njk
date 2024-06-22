@@ -20,6 +20,7 @@ layout: base.njk
                                 {%- for room in collections.room -%}
                                     {%- if room.data.tags == "room" and room.data.language == "sv" -%}
                                         <h4>{{ room.data.title }} - Välj "Till bokning" nedan för att se aktuella priser</h4>
+                                        
                                         <img src="{{ room.data.image }}" alt="">
                                         <p></p>
                                         <p>{{ room.data.description }}</p>

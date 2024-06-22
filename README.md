@@ -9,6 +9,7 @@ Run the following 3 commands in the cloned repository:
 npm install @11ty/eleventy
 npm install @sherby/eleventy-plugin-files-minifier --save-dev
 npm install --save luxon
+npm install --save-dev @11ty/eleventy-img
 ```
 
 ## Run the development server
