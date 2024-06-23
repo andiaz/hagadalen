@@ -15,7 +15,12 @@
                         <ul id="menu-meny-1" class="menu">
                             <li id="menu-item-18"
                                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-18">
-                                <a href="{{ "/index/" | locale_url }}">{{ header[locale].home }}</a></li>
+                                {%- if page.lang == 'sv' -%}
+                                    <a href="/">{{ header[locale].home }}</a></li>
+                                {%- else -%}
+                                    <a href="/en/">{{ header[locale].home }}</a></li>
+                                {%- endif -%}
+                                <!-- <a href="{{ "/index/" | locale_url }}">{{ header[locale].home }}</a></li> -->
                             <li id="menu-item-19"
                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19"><a
                                     href="https://5c65bf165a023.sirvoy.me/">{{ header[locale].bookRoom }}</a></li>
@@ -37,12 +42,20 @@
             </nav>
 
             <nav id="siteNav" style="top: 70">
-                <a href="{{ "/index/" | locale_url }}">{% image "img/Hagadalen_logo.png", "Hågadalens vandrarhem logotyp." %}</a>
+                {%- if page.lang == 'sv' -%}
+                    <a href="/">{% image "img/Hagadalen_logo.png", "Hågadalens vandrarhem logotyp." %}</a>
+                {%- else -%}
+                    <a href="/en/">{% image "img/Hagadalen_logo.png", "Hågadalens vandrarhem logotyp." %}</a>
+                {%- endif -%}
                 <div class="menu-meny-1-container">
                     <ul id="menu-meny-2" class="menu">
                         <li
                             class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-18">
-                            <a href="{{ "/index/" | locale_url }}">{{ header[locale].home }}</a></li>
+                            {%- if page.lang == 'sv' -%}
+                                    <a href="/">{{ header[locale].home }}</a></li>
+                                {%- else -%}
+                                    <a href="/en/">{{ header[locale].home }}</a></li>
+                            {%- endif -%}
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19"><a
                                 href="https://5c65bf165a023.sirvoy.me/">{{ header[locale].bookRoom }}</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a
