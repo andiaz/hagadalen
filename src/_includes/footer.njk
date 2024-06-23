@@ -8,12 +8,21 @@
                 <aside id="icl_lang_sel_widget-3" class="widget widget_icl_lang_sel_widget">
                     <div class="wpml-ls-sidebars-footer-sidebar-1 wpml-ls wpml-ls-legacy-list-vertical">
                         <ul>
-                            <li class="wpml-ls-slot-footer-sidebar-1 wpml-ls-item wpml-ls-item-sv wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-list-vertical">
-                                <a href="/" class="wpml-ls-link"><img class="wpml-ls-flag" src="/img/sv.png" alt="sv" title="Svenska"><span class="wpml-ls-native">Svenska</span></a>
-                            </li>
-                            <li class="wpml-ls-slot-footer-sidebar-1 wpml-ls-item wpml-ls-item-en wpml-ls-last-item wpml-ls-item-legacy-list-vertical">
-                                <a href="/en/" class="wpml-ls-link"><img class="wpml-ls-flag" src="/img/en.png" alt="en" title="English"><span class="wpml-ls-native">English</span></a>
-                            </li>
+                            {%- if page.fileSlug === "sv" -%}
+                                <li class="wpml-ls-slot-footer-sidebar-1 wpml-ls-item wpml-ls-item-sv wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-list-vertical">
+                                    <a href="/" class="wpml-ls-link"><img class="wpml-ls-flag" src="/img/sv.png" alt="sv" title="Svenska"><span class="wpml-ls-native">Svenska</span></a>
+                                </li>
+                                <li class="wpml-ls-slot-footer-sidebar-1 wpml-ls-item wpml-ls-item-en wpml-ls-last-item wpml-ls-item-legacy-list-vertical">
+                                    <a href="/en/" class="wpml-ls-link"><img class="wpml-ls-flag" src="/img/en.png" alt="en" title="English"><span class="wpml-ls-native">English</span></a>
+                                </li>
+                            {%- else -%}
+                                <li class="wpml-ls-slot-footer-sidebar-1 wpml-ls-item wpml-ls-item-sv wpml-ls-current-language wpml-ls-first-item wpml-ls-item-legacy-list-vertical">
+                                    <a href="/sv/{{ page.fileSlug }}/" class="wpml-ls-link"><img class="wpml-ls-flag" src="/img/sv.png" alt="sv" title="Svenska"><span class="wpml-ls-native">Svenska</span></a>
+                                </li>
+                                <li class="wpml-ls-slot-footer-sidebar-1 wpml-ls-item wpml-ls-item-en wpml-ls-last-item wpml-ls-item-legacy-list-vertical">
+                                    <a href="/en/{{ page.fileSlug }}/" class="wpml-ls-link"><img class="wpml-ls-flag" src="/img/en.png" alt="en" title="English"><span class="wpml-ls-native">English</span></a>
+                                </li>
+                            {%- endif -%}
                         </ul>
                         <!-- This page is also available in:
                         {% for link in page.url | locale_links %}
